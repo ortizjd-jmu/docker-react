@@ -8,7 +8,7 @@ before_install:
 script:
   - docker run -e CI=true ortizjd-jmu/docker-react npm run test
 
-language: generic 
+language: generic
 
 deploy:
   provider: elasticbeanstalk
@@ -19,3 +19,6 @@ deploy:
   bucket_path: "docker-react"
   on:
     branch: master
+
+  access_key_id: $access_key_id
+  secret_access_key: $secret_access_key
