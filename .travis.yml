@@ -7,5 +7,15 @@ before_install:
 
 script:
   - docker run -e CI=true ortizjd-jmu/docker-react npm run test
-  
+
 language: generic 
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "docker-react"
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-us-east-1-263638668305"
+  bucket_path: "docker-react"
+  on:
+    branch: master
