@@ -1,0 +1,11 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t ortizjd-jmu/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true ortizjd-jmu/docker-react npm run test
+  
+language: generic 
